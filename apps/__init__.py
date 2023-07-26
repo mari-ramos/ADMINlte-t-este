@@ -2,7 +2,7 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
-
+#arquivo principal do flask
 import os
 
 from flask import Flask
