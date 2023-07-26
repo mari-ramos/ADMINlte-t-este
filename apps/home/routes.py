@@ -9,16 +9,16 @@ from flask_login import login_required
 from jinja2 import TemplateNotFound
 
 
-@blueprint.route('/index')
+@blueprint.route('/index') 
 @login_required
-def index():
+def index(): #rota para a página inicial do aplicativo. É decorada com @login_required, o que significa que o usuário deve estar autenticado para acessar essa página. A função renderiza o template 'home/index.html' e passa um contexto 'segment' com valor 'index'.
 
     return render_template('home/index.html', segment='index')
 
 
 @blueprint.route('/<template>')
 @login_required
-def route_template(template):
+def route_template(template): #Esta função é uma rota genérica para renderizar templates dentro do diretório 'templates/home/'
 
     try:
 
@@ -39,8 +39,8 @@ def route_template(template):
 
 
 # Helper - Extract current page name from request
-def get_segment(request):
-
+def get_segment(request): #função auxiliar para obter o nome da página atual a partir do objeto request do Flask.
+                          #Ela extrai o nome da página da parte final da URL e retorna 'index' se a URL for vazia. Essa função é usada internamente na função route_template() para determinar o valor do contexto 'segment'.
     try:
 
         segment = request.path.split('/')[-1]
