@@ -10,7 +10,7 @@ import binascii
 # Inspiration -> https://www.vitoshacademy.com/hashing-passwords-in-python/
 
 
-def hash_pass(password):
+def hash_pass(password): #função responsável por gerar o hash de uma senha para armazenamento seguro no banco de dados.
     """Hash a password for storing."""
 
     salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
@@ -20,7 +20,7 @@ def hash_pass(password):
     return (salt + pwdhash)  # return bytes
 
 
-def verify_pass(provided_password, stored_password):
+def verify_pass(provided_password, stored_password): #função verifica se uma senha fornecida pelo usuário corresponde à senha armazenada no banco de dados.
     """Verify a stored password against one provided by user"""
 
     stored_password = stored_password.decode('ascii')

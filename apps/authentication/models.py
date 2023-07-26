@@ -36,7 +36,7 @@ class Users(db.Model, UserMixin):
         return str(self.username)
 
 
-@login_manager.user_loader
+@login_manager.user_loader #decorador
 def user_loader(id):
     return Users.query.filter_by(id=id).first()
 
