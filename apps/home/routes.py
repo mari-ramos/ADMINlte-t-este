@@ -8,13 +8,10 @@ from flask import render_template, request
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 
-
-@blueprint.route('/index')
+@blueprint.route('/')
 @login_required
-def index():
-
-    return render_template('home/index.html', segment='index')
-
+def index_redirect():
+    return redirect(url_for('home_blueprint.visualizar'))
 
 @blueprint.route('/<template>')
 @login_required
@@ -46,9 +43,38 @@ def get_segment(request):
         segment = request.path.split('/')[-1]
 
         if segment == '':
-            segment = 'index'
+            segment = 'visualizar'
 
         return segment
 
     except:
         return None
+@blueprint.route('/visualizar')
+@login_required
+def visualizar():
+    try:
+        return render_template("home/visualizar.html", segment='visualizar')
+    except TemplateNotFound:
+        return render_template('home/page-404.html'), 404
+    except:
+        return render_template('home/page-500.html'), 500
+
+@blueprint.route('/edicao')
+@login_required
+def edicao():
+    try:
+        return render_template("home/edicao.html", segment='edicao')
+    except TemplateNotFound:
+        return render_template('home/page-404.html'), 404
+    except:
+        return render_template('home/page-500.html'), 500
+
+@blueprint.route('/pedidos')
+@login_required
+def pedidos():
+    try:
+        return render_template("home/pedidos.html", segment='pedidos')
+    except TemplateNotFound:
+        return render_template('home/page-404.html'), 404
+    except:
+        return render_template('home/page-500.html'), 500
