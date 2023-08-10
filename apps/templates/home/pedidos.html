@@ -1,0 +1,139 @@
+<!--Antigo index3-->
+{% extends "layouts/base.html" %}
+
+{% block title %} Top Navigation + Sidebar {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} sidebar-collapse layout-top-nav {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="/static/assets/plugins/fontawesome-free/css/all.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="/static/assets/css/adminlte.min.css">
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark"> Admin MST</h1>
+        </div><!-- /.col -->
+        <!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+  <div class="card">
+    <div class="card-header border-transparent">
+      <h3 class="card-title">Cesta mm-yy</h3>
+
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+          <i class="fas fa-minus"></i>
+        </button>
+      </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table m-0">
+          <thead>
+          <tr class="text-center">
+            <th>Número do Pedido</th>
+            <th>Item</th>
+            <th>Status</th>
+            <th>Quantidade</th>
+          </tr>
+          </thead>
+          <tbody class="text-center">
+          <tr>
+            <td><a href="pages/examples/invoice.html">36334313281</a></td>
+            <td>Alface</td>
+            <td><span class="badge badge-success">Disponível</span></td>
+            <td>
+              <div class="sparkbar" data-color="#00a65a" data-height="20">9 pés</div>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="pages/examples/invoice.html">95634579984</a></td>
+            <td>Rúcula</td>
+            <td><span class="badge badge-warning">Atribuído</span></td>
+            <td>
+              <div class="sparkbar" data-color="#f39c12" data-height="20">8 pés</div>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="pages/examples/invoice.html">76516758466</a></td>
+            <td>Batata Inglesa</td>
+            <td><span class="badge badge-danger">Indisponível</span></td>
+            <td>
+              <div class="sparkbar" data-color="#f56954" data-height="20">4 kg</div>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="pages/examples/invoice.html">29815874189</a></td>
+            <td>Batata Baroa</td>
+            <td><span class="badge badge-info">Qtd. Insuficiente</span></td>
+            <td>
+              <div class="sparkbar" data-color="#00c0ef" data-height="20"> 2,8 kg</div>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="pages/examples/invoice.html">11405563436</a></td>
+            <td>Banana</td>
+            <td><span class="badge badge-warning">Atribuído</span></td>
+            <td>
+              <div class="sparkbar" data-color="#f39c12" data-height="20">2,5 kg</div>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="pages/examples/invoice.html">67323409596</a></td>
+            <td>Pera</td>
+            <td><span class="badge badge-danger">Indisponível</span></td>
+            <td>
+              <div class="sparkbar" data-color="#f56954" data-height="20">3 kg</div>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="pages/examples/invoice.html">69024806757</a></td>
+            <td>Cenoura</td>
+            <td><span class="badge badge-success">Disponível</span></td>
+            <td>
+              <div class="sparkbar" data-color="#00a65a" data-height="20">2 kg</div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.table-responsive -->
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer clearfix">
+      <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Inserir novo item</a>
+      <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">Ver mais pedidos</a>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<!-- jQuery -->
+<script src="/static/assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/static/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/static/assets/js/adminlte.min.js"></script>
+
+{% endblock javascripts %}
