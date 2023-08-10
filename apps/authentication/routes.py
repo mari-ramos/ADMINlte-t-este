@@ -45,7 +45,7 @@ def login():
 
         # Something (user or pass) is not ok
         return render_template('accounts/login.html',
-                               msg='Wrong user or password',
+                               msg='Nome de usuário ou senha incorretos', #traduzi a mensagem de erro
                                form=login_form)
 
     if not current_user.is_authenticated:
@@ -57,37 +57,41 @@ def login():
 @blueprint.route('/register', methods=['GET', 'POST'])
 def register():
     create_account_form = CreateAccountForm(request.form)
-    if 'register' in request.form:
+    if 'register' in request.form and create_account_form.validate():
 
-        username = request.form['username']
-        email = request.form['email']
+        username = create_account_form.username.data
+        phone = create_account_form.phone.data
 
         # Check usename exists
         user = Users.query.filter_by(username=username).first()
         if user:
             return render_template('accounts/register.html',
-                                   msg='Username already registered',
+                                   msg='Nome de usuário existente no sistema. Tente outro.', #traduzi msg
                                    success=False,
                                    form=create_account_form)
 
-        # Check email exists
-        user = Users.query.filter_by(email=email).first()
+        # Check phone number length
+        if len(phone) != 11:
+            return render_template('accounts/register.html',
+                                   msg='Número de telefone deve incluir o código de área (DDD).',
+                                   success=False,
+                                   form=create_account_form)
+        # Check phone number exists
+        user = Users.query.filter_by(phone=phone).first()
         if user:
             return render_template('accounts/register.html',
-                                   msg='Email already registered',
+                                   msg='Número de telefone já registrado',
                                    success=False,
                                    form=create_account_form)
-
-        # else we can create the user
+        # Create the user
         user = Users(**request.form)
         db.session.add(user)
         db.session.commit()
 
         return render_template('accounts/register.html',
-                               msg='User created please <a href="/login">login</a>',
+                               msg='Cadastro realizado com sucesso <a href="/login">login</a>',
                                success=True,
                                form=create_account_form)
-
     else:
         return render_template('accounts/register.html', form=create_account_form)
 

@@ -25,7 +25,7 @@
 
     <div class="login-logo">
         <a target="_blank" rel="noopener noreferrer" 
-           href="https://appseed.us/product/adminlte/flask/"><b>Admin</b>LTE Flask</a>
+           href="https://appseed.us/product/adminlte/flask/"><b>Admin</b>MST</a>
     </div>    
 
     <div class="card">
@@ -35,7 +35,7 @@
                 <span class="text-danger">{{ msg | safe }}</span>
             {% else %}
             <span>
-                Add your credentials
+                Bem-vindo a tela de Cadastro!
             </span>
             {% endif %}            
         </p>
@@ -45,7 +45,7 @@
           {{ form.hidden_tag() }}
 
           <div class="input-group mb-3">
-            {{ form.username(placeholder="Username", class="form-control") }}
+            {{ form.username(placeholder="Nome da Família", class="form-control") }}
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
@@ -53,15 +53,15 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            {{ form.email(placeholder="Email", class="form-control") }}
+            {{ form.phone(placeholder="Número de telefone", class="form-control") }} <!--mudei para form.phone o que era form.email-->
             <div class="input-group-append">
               <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
+                <span class="fas fa-phone"></span>
               </div>
             </div>
           </div>
           <div class="input-group mb-3">
-            {{ form.password(placeholder="Password", class="form-control", type="password") }}
+            {{ form.password(placeholder="Senha", class="form-control", type="password") }}
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -74,13 +74,13 @@
               <div class="icheck-primary">
                 <input type="checkbox" id="agreeTerms" name="terms" value="agree">
                 <label for="agreeTerms">
-                I agree to the <a href="#">terms</a>
+                Concordo com os <a href="#">termos de uso</a>
                 </label>
               </div>
             </div>
             <!-- /.col -->
             <div class="col-4">
-              <button type="submit" name="register" class="btn btn-primary btn-block">Register</button>
+              <button type="submit" name="register" class="btn btn-primary btn-block">Cadastrar</button>
             </div>
             <!-- /.col -->
           </div>
@@ -88,12 +88,12 @@
 
         <br />
         <div class="text-center">
-            Have an account? <a href="{{ url_for('authentication_blueprint.login') }}" class="text-center">Login</a>
+            Possui uma conta?<a href="{{ url_for('authentication_blueprint.login') }}" class="text-center">Login</a>
             <br />
             <br />
             &copy; ColorLib 
             <a target="_blank" rel="noopener noreferrer"
-               href="https://appseed.us/product/adminlte/flask/"><b>Admin</b>LTE</a> 
+               href="https://appseed.us/product/adminlte/flask/"><b>Admin</b>MST</a> 
             - coded by <a target="_blank" rel="noopener noreferrer" href="https://appseed.us">AppSeed</a>.
         </div>
 
